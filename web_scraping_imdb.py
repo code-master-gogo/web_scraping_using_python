@@ -1,3 +1,11 @@
+"""
+Q)From the given link* of IMDB movies released in 2018, find the movies between r1* and r2* on the basis of highest number of votes and out of the 7000 movies find the movie with the highest runtime.
+r1* = 1000
+r2* = 8000
+Link* = https://www.imdb.com/search/title/?release_date=2018-01-01,2018-12-31&sort=num_votes,desc
+"""
+
+#Solution:-
 from urllib import request
 from requests import get
 from bs4 import BeautifulSoup
@@ -62,4 +70,5 @@ movies = dict(zip(titles, runtimes))
 print(max(runtimes))
 print(max(movies, key=lambda k: movies[k]))
 
+#This will form csv file and enter all the data into it.
 movie_df.to_csv('movies.csv')
